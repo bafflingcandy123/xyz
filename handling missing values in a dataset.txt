@@ -1,0 +1,86 @@
+1a.using isnull()and notnull()
+
+import pandas as pd
+import numpy as np
+dict1 = {'First Score':[100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score':[np.nan, 40, 80, 98]}
+df = pd.DataFrame(dict1) 
+df.isnull()
+
+import pandas as pd
+data = pd.read_csv("employees.csv")
+bool_series = pd.isnull(data["Gender"])
+data[bool_series]
+
+import pandas as pd
+import numpy as np
+dict1 = {'First Score':[100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score':[np.nan, 40, 80, 98]}
+df = pd.DataFrame(dict1)
+df.notnull()
+
+import pandas as pd
+data = pd.read_csv("employees.csv")
+bool_series = pd.notnull(data["Gender"])
+data[bool_series]
+
+1b.fillna bfill
+
+import pandas as pd
+import numpy as np
+dict = {'First Score':[100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score':[np.nan, 40, 80, 98]}
+df = pd.DataFrame(dict)
+df.fillna(method ='pad')
+
+import pandas as pd
+import numpy as np
+dict = {'First Score':[100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score':[np.nan, 40, 80, 98]}
+df = pd.DataFrame(dict)
+df.fillna(method ='bfill')
+
+1c.interpolate the missing values
+
+import pandas as pd
+df = pd.DataFrame({"A":[12, 4, 5, None, 1],
+                   "B":[None, 2, 54, 3, None],
+                   "C":[20, 16, None, 3, 8],
+                   "D":[14, 3, None, None, 6]})
+df
+df.interpolate(method ='linear', limit_direction ='forward')
+
+1d.using dropna function
+
+import pandas as pd
+import numpy as np
+dict = {'First Score':[100, 90, np.nan, 95],
+        'Second Score': [30, np.nan, 45, 56],
+        'Third Score':[52, 40, 80, 98],
+        'Fourth Score':[np.nan, np.nan, np.nan, 65]}
+df = pd.DataFrame(dict)
+df.dropna()
+
+import pandas as pd
+import numpy as np
+dict = {'First Score':[100, np.nan, np.nan, 95],
+        'Second Score': [30, np.nan, 45, 56],
+        'Third Score':[52, np.nan, 80, 98],
+        'Fourth Score':[np.nan, np.nan, np.nan, 65]}
+df = pd.DataFrame(dict)
+df.dropna(how = 'all')
+
+import pandas as pd
+import numpy as np
+dict = {'First Score':[100, np.nan, np.nan, 95],
+        'Second Score': [30, np.nan, 45, 56],
+        'Third Score':[52, np.nan, 80, 98],
+        'Fourth Score':[60, 67, 68, 65]}
+df = pd.DataFrame(dict)
+df.dropna(axis = 1)
+
+

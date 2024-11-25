@@ -1,0 +1,28 @@
+import pandas as pd
+path="/content/insurance_data.csv"
+data=pd.read_csv(path)
+print(data)
+print(data.info)
+inputs = data.drop('bought_insurance', axis=1)  
+output = data.drop('age', axis=1) 
+print(inputs)
+print(output)
+import matplotlib.pyplot as plt
+plt.xlabel('Age')
+plt.ylabel('bought_insurance')
+plt.scatter(inputs,output)
+
+import sklearn
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(inputs,output,train_size=0.8)
+print(x_train)
+print(x_test)
+print(y_train)
+print(y_test)
+
+from sklearn.linear_model import LogisticRegression
+model=LogisticRegression()
+model.fit(x_train,y_train)
+y_pred=model.predict(x_test)
+print(y_pred)
+print(x_test)
